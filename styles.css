@@ -1,0 +1,120 @@
+:root {
+  --color-ok: #6aaa64;
+  --color-existe: #c9b458;
+  --color-no: #787c7e;
+  --color-tecla: #d3d6da;
+  --color-borde: #d3d6da;
+  --color-texto: #1a1a1b;
+  --color-boton: #0d6efd;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: var(--color-texto);
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+.oculto {
+  display: none !important;
+}
+
+/* ---------- Formulario (Flexbox) ---------- */
+#formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+select, button {
+  font-size: 1rem;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-borde);
+}
+
+select {
+  width: 200px;
+}
+
+#boton-jugar, #boton-reiniciar {
+  background: var(--color-boton);
+  color: white;
+  width: 200px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+/* ---------- Tablero (Grid) ---------- */
+#tablero {
+  display: grid;
+  gap: 6px;
+  margin: 1rem auto;
+  max-width: 100%;
+}
+
+.celda {
+  aspect-ratio: 1;
+  border: 2px solid var(--color-borde);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* ---------- Teclado (Flexbox) ---------- */
+#teclado {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fila-teclado {
+  display: flex;
+  gap: 6px;
+}
+
+.tecla {
+  flex: 1;
+  background: var(--color-tecla);
+  border: none;
+  font-weight: bold;
+  padding: 0.8rem 0;
+  cursor: pointer;
+  font-family: monospace;
+}
+
+/* ---------- Colores ---------- */
+.celda.ok, .celda.no, .celda.existe,
+.tecla.ok, .tecla.no, .tecla.existe {
+  color: white;
+  border-color: transparent;
+}
+
+.ok { background: var(--color-ok); }
+.existe { background: var(--color-existe); }
+.no { background: var(--color-no); }
+
+/* ---------- Historial ---------- */
+#historial {
+  list-style: none;
+  padding: 0;
+}
+
+#historial li {
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.ganada { color: var(--color-ok); font-weight: bold; }
+.perdida { color: #c0392b; font-weight: bold; }
